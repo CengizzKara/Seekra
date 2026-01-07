@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seekra | Privacy-First Search Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-search"></i>
+                        <span>Seekra</span>
+                    </div>
+                    <div class="version">v1.0</div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="icon-btn" id="historyBtn">
+                        <i class="fas fa-history"></i>
+                    </button>
+                    <button class="icon-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="icon-btn" id="themeBtn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Search Without Tracking</h1>
+                    <p class="hero-subtitle">Your privacy is our priority. Every search is anonymous and secure.</p>
+                </div>
+                
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <div class="search-box">
+                            <div class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                class="search-input"
+                                placeholder="Search privately with DuckDuckGo..."
+                                autocomplete="off"
+                                autofocus
+                            >
+                            <button type="button" id="clearBtn" class="clear-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="search-controls">
+                            <div class="search-types">
+                                <div class="type-selector">
+                                    <button type="button" class="type-btn active" data-type="web">
+                                        <i class="fas fa-globe"></i>
+                                        Web
+                                    </button>
+                                    <button type="button" class="type-btn" data-type="images">
+                                        <i class="fas fa-image"></i>
+                                        Images
+                                    </button>
+                                    <button type="button" class="type-btn" data-type="news">
+                                        <i class="fas fa-newspaper"></i>
+                                        News
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                                Search Now
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="quick-search">
+                        <div class="quick-search-title">Quick Searches:</div>
+                        <div class="quick-search-grid">
+                            <button class="quick-search-item" data-query="weather today">
+                                <i class="fas fa-sun"></i>
+                                Weather
+                            </button>
+                            <button class="quick-search-item" data-query="breaking news">
+                                <i class="fas fa-bolt"></i>
+                                Latest News
+                            </button>
+                            <button class="quick-search-item" data-query="technology trends">
+                                <i class="fas fa-microchip"></i>
+                                Technology
+                            </button>
+                            <button class="quick-search-item" data-query="healthy recipes">
+                                <i class="fas fa-utensils"></i>
+                                Recipes
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-badge">
+                        <div class="privacy-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="privacy-text">
+                            <strong>Privacy Guaranteed</strong>
+                            <span>No tracking • No cookies • No data collection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayCount">0</div>
+                        <div class="stat-label">Searches Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalCount">0</div>
+                        <div class="stat-label">Total Searches</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="weekCount">0</div>
+                        <div class="stat-label">This Week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <div class="stat-label">Always Free</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Complete Privacy</h3>
+                        <p>Your searches never leave your device. No logs, no tracking.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Instant Results</h3>
+                        <p>Powered by DuckDuckGo for fast, reliable search results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Assistant</h3>
+                        <p>Quick access to DeepSeek AI for intelligent assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="sidebar" id="historySidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <i class="fas fa-history"></i>
+                    Search History
+                </h2>
+                <button class="sidebar-close" id="closeHistory">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="history-actions">
+                    <button class="action-btn danger" id="clearAllHistoryBtn">
+                        <i class="fas fa-trash"></i>
+                        Clear All History
+                    </button>
+                </div>
+                
+                <div class="history-list" id="historyList">
+                    <div class="empty-history">
+                        <i class="fas fa-search"></i>
+                        <h3>No Search History</h3>
+                        <p>Your searches will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="settingsSidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </h2>
+                <button class="sidebar-close" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="settings-group">
+                    <h3>Appearance</h3>
+                    <div class="settings-item">
+                        <label>Theme</label>
+                        <div class="theme-selector">
+                            <button class="theme-option active" data-theme="light">
+                                <div class="theme-preview light"></div>
+                                <span>Light</span>
+                            </button>
+                            <button class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark"></div>
+                                <span>Dark</span>
+                            </button>
+                            <button class="theme-option" data-theme="blue">
+                                <div class="theme-preview blue"></div>
+                                <span>Blue</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <label>Font Size</label>
+                        <div class="font-control">
+                            <button class="font-btn" id="fontSmaller">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <div class="font-size" id="fontSizeDisplay">Medium</div>
+                            <button class="font-btn" id="fontLarger">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-group">
+                    <h3>Search Settings</h3>
+                    <div class="settings-item">
+                        <div class="toggle-item">
+                            <div class="toggle-label">
+                                <i class="fas fa-filter"></i>
+                                Safe Search
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="safeSearchToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-group">
+                    <h3>Quick Actions</h3>
+                    <div class="settings-item">
+                        <button class="action-btn" id="openDeepseekBtn">
+                            <i class="fas fa-robot"></i>
+                            Open DeepSeek AI
+                        </button>
+                        <button class="action-btn" id="privacyPolicyBtn">
+                            <i class="fas fa-file-contract"></i>
+                            Privacy Policy
+                        </button>
+                        <button class="action-btn" id="clearHistoryBtn">
+                            <i class="fas fa-trash"></i>
+                            Clear Recent History
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="privacySidebar">
+            <div class="sidebar-header">
+                <h2>
+                    <i class="fas fa-file-contract"></i>
+                    Privacy Policy
+                </h2>
+                <button class="sidebar-close" id="closePrivacy">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="privacy-content">
+                    <h3>Seekra Privacy Policy</h3>
+                    <p class="policy-date">Last Updated: January 2026</p>
+                    
+                    <div class="policy-section">
+                        <h4>1. Data Collection</h4>
+                        <p>Seekra does not collect, store, or track any personal information. Your search queries are processed locally in your browser and immediately redirected to DuckDuckGo.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h4>2. Search History</h4>
+                        <p>Search history is stored locally in your browser's localStorage. This data never leaves your device and can be cleared at any time through the settings panel.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h4>3. Third-Party Services</h4>
+                        <p>Searches are redirected to DuckDuckGo, which has its own privacy policy. Seekra does not have access to your interactions with DuckDuckGo.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h4>4. Cookies and Tracking</h4>
+                        <p>Seekra does not use cookies, analytics, or any tracking technologies. The only data stored is your local preferences (theme, font size, etc.).</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <h4>5. Data Security</h4>
+                        <p>All data is stored locally on your device. We recommend using your browser's private/incognito mode for additional privacy.</p>
+                    </div>
+                    
+                    <div class="policy-notice">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Seekra is a privacy front-end. Your searches are handled by DuckDuckGo according to their privacy practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <i class="fas fa-search"></i>
+                            <span>Seekra</span>
+                        </div>
+                        <div class="footer-tagline">Search with Confidence</div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <button class="footer-link" id="footerPrivacyBtn">Privacy</button>
+                        <button class="footer-link" id="footerSettingsBtn">Settings</button>
+                        <button class="footer-link" id="footerHistoryBtn">History</button>
+                        <button class="footer-link" id="footerAboutBtn">About</button>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-info">
+                        <i class="fas fa-lock"></i>
+                        <span>Your searches are private and secure</span>
+                    </div>
+                    <div class="footer-copyright">
+                        © 2025 Seekra - Created by Cengiz Kara - All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

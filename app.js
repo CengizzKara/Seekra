@@ -443,7 +443,7 @@ class SeekraApp {
     }
     
     showAbout() {
-        this.showNotification('Seekra v2.0 - Privacy-first search engine');
+        this.showNotification('Seekra v1.0 - Privacy-first search engine');
     }
     
     showNotification(message) {
